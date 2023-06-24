@@ -15,7 +15,8 @@ import java.util.Set;
 public class Encuesta {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue
     @Column(name = "ENCUESTA_ID")
     private Long id;
 
@@ -25,7 +26,7 @@ public class Encuesta {
     //Una encuesta puede tener muchas opciones
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "ENCUESTA_ID")
-    @OrderBy()
+    @OrderBy
     private Set<Opcion> opciones;
 
 }
